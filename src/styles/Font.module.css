@@ -1,0 +1,31 @@
+.quicksandHeading {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    font-optical-sizing: auto;
+    color: #ffffff;
+  }
+
+  .quicksandSubHeading {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    font-optical-sizing: auto;
+    color: #ffffff;
+  }
+
+  .quicksandTranslate {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    font-optical-sizing: auto;
+    color: #E5E5E5;
+  }
+
+  .quicksandColorTranslate {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    font-optical-sizing: auto;
+    color: #C084FC;
+  }
