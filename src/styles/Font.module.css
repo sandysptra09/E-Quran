@@ -3,7 +3,7 @@
     font-weight: 700;
     font-size: 30px;
     font-optical-sizing: auto;
-    color: #ffffff;
+    color: #ffff;
   }
 
   .quicksandSubHeading {
@@ -11,15 +11,30 @@
     font-weight: 700;
     font-size: 20px;
     font-optical-sizing: auto;
-    color: #ffffff;
+  }
+
+  .quicksandSubHeadingSub {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    color: #ffff;
+  }
+
+  .quicksandSubHeadingArab {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    color: #ffff;
   }
 
   .quicksandTranslate {
     font-family: "Quicksand", sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
     font-optical-sizing: auto;
-    color: #E5E5E5;
+    color: #ffff;
   }
 
   .quicksandColorTranslate {
@@ -27,5 +42,13 @@
     font-weight: 400;
     font-size: 14px;
     font-optical-sizing: auto;
-    color: #C084FC;
+    color: #3e77ff;
+  }
+
+  .quicksandColorHeadTranslate {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    font-optical-sizing: auto;
+    color: #6290ff;
   }

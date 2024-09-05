@@ -11,6 +11,7 @@ import NotFound from '../pages/Not_Found/NotFound';
 
 // import layouts
 import IndexEQuran from '../layouts/IndexEQuran';
+import Doa from '../pages/Doa/Doa';
 
 export default function () {
   return (
@@ -18,15 +19,14 @@ export default function () {
         <Routes>
 
             {/* Routes Path */}
-            <Route exact path="/" element={<IndexEQuran />} >
+
+            <Route exact path="/" element={<IndexEQuran />} />
             
-                {/* Nested Routes */}
-                <Route index element={<Index />}/>
-                
-            </Route>
+            <Route path='/surah' element={<IndexEQuran />} />
+
+            <Route path='/doa' element={<Doa />} />
 
             <Route path='*' element={<NotFound />} />
-            
 
         </Routes>
     </Router>

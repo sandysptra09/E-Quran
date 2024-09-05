@@ -1,7 +1,15 @@
 .bakcgroundPrimary {
-    background: #262626;
+    background: #f5f5f5;
 }
 
 .backgroundSecondary {
-    background: #171717;
+    background: #ffffff;
+}
+
+.backgroundCard {
+    background: #dbe5ff;
+}
+
+.backgroundHeadCard {
+    background: #6290ff;
 }
