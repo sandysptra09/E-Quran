@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nextui-org/accordion": "^2.0.38",
     "@nextui-org/avatar": "^2.0.32",
     "@nextui-org/input": "^2.2.4",
     "@nextui-org/navbar": "^2.0.36",

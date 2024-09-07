@@ -21,6 +21,14 @@
     color: #ffff;
   }
 
+  .quicksandParagraph {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    color: #171717;
+  }
+
   .quicksandSubHeadingArab {
     font-family: "Quicksand", sans-serif;
     font-weight: 300;
@@ -52,3 +60,18 @@
     font-optical-sizing: auto;
     color: #6290ff;
   }
+
+  .accordionHeader {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    font-optical-sizing: auto;
+  }
+
+  .accordionSubHeader {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    font-optical-sizing: auto;
+  }
+  

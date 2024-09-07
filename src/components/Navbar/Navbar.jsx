@@ -9,15 +9,24 @@ import {
   NavbarMenuItem,
   Link as NextUILink,
 } from "@nextui-org/react";
-
 import { Input } from "@nextui-org/input";
-import { Link as RouterLink } from "react-router-dom"; // Import Link dari react-router-dom
+import { Link as RouterLink, useLocation } from "react-router-dom"; // Import useLocation
 import styles from "../../styles/Font.module.css";
 
 export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation(); // Dapatkan lokasi saat ini
 
-  const menuItems = ["Beranda", "Surah", "Doa", "Blog", "Forum"];
+  const menuItems = [
+    { name: "Beranda", path: "/" },
+    { name: "Surah", path: "/surah" },
+    { name: "Doa", path: "/doa" },
+    { name: "Blog", path: "/blog" },
+    { name: "Forum", path: "/forum" },
+  ];
+
+  // Function to check if Link is active
+  const isActive = (path) => location.pathname === path;
 
   return (
     <NextUINavbar
@@ -33,41 +42,26 @@ export default function CustomNavbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <RouterLink to='/' className={`text-inherit text-black ${styles.quicksandHeading}`}>
-            EQuran.san
+          <RouterLink to="/" className={`text-inherit text-black ${styles.quicksandHeading}`}>
+          San.EQuran
           </RouterLink>
         </NavbarBrand>
       </NavbarContent>
 
       {/* Center section */}
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <NextUILink
-            as={RouterLink}
-            to="/"
-            className={`${styles.quicksandSubHeading}`}
-          >
-            Beranda
-          </NextUILink>
-        </NavbarItem>
-        <NavbarItem>
-          <NextUILink
-            as={RouterLink}
-            to="/surah"
-            className={`${styles.quicksandSubHeading}`}
-          >
-            Surah
-          </NextUILink>
-        </NavbarItem>
-        <NavbarItem>
-          <NextUILink
-            as={RouterLink}
-            to="/doa"
-            className={`${styles.quicksandSubHeading}`}
-          >
-            Doa
-          </NextUILink>
-        </NavbarItem>
+        {menuItems.slice(0, 3).map((item, index) => (
+          <NavbarItem key={index}>
+            <NextUILink
+              as={RouterLink}
+              to={item.path}
+              className={`${styles.quicksandSubHeading} ${isActive(item.path) ? "text-blue-600" : "text-black"
+                }`}
+            >
+              {item.name}
+            </NextUILink>
+          </NavbarItem>
+        ))}
         <NavbarItem>
           <Input
             clearable
@@ -80,29 +74,31 @@ export default function CustomNavbar() {
 
       {/* Right section */}
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <NextUILink as={RouterLink} to="/blog">
-            Blog
-          </NextUILink>
-        </NavbarItem>
-        <NavbarItem className="hidden lg:flex">
-          <NextUILink as={RouterLink} to="/forum">
-            Forum
-          </NextUILink>
-        </NavbarItem>
+        {menuItems.slice(3).map((item, index) => (
+          <NavbarItem key={index}>
+            <NextUILink
+              as={RouterLink}
+              to={item.path}
+              className={`${isActive(item.path) ? "text-blue-600" : "text-black"}`}
+            >
+              {item.name}
+            </NextUILink>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       {/* Mobile menu */}
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={index}>
             <NextUILink
               as={RouterLink}
-              to={`/${item.toLowerCase()}`}
-              className="w-full"
+              to={item.path}
+              className={`w-full ${isActive(item.path) ? "text-blue-600" : "text-black"
+                }`}
               size="lg"
             >
-              {item}
+              {item.name}
             </NextUILink>
           </NavbarMenuItem>
         ))}
