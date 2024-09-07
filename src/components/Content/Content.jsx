@@ -77,6 +77,7 @@ export default function DetailSurah({ surahNomor}) {
                                         {detailSurah.nomor}
                                     </span>
                                 </div>
+                                
                             </div>
                         </div>
                         <div className="flex gap-3 py-4">
