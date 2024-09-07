@@ -12,6 +12,7 @@ import NotFound from '../pages/Not_Found/NotFound';
 // import layouts
 import IndexEQuran from '../layouts/IndexEQuran';
 import Doa from '../pages/Doa/Doa';
+import Surah from '../pages/Surah/Surah';
 
 export default function () {
   return (
@@ -20,12 +21,17 @@ export default function () {
 
             {/* Routes Path */}
 
-            <Route exact path="/" element={<IndexEQuran />} />
+            {/* Main route with navbar */}
+            <Route exact path="/" element={<IndexEQuran />}>
             
-            <Route path='/surah' element={<IndexEQuran />} />
+                {/* Nested Route */}
+                <Route index element={<Index />} />
+                <Route path='/surah' element={<Surah/>} />
+                <Route path='/doa' element={<Doa />} />
 
-            <Route path='/doa' element={<Doa />} />
+            </Route>
 
+            {/* Route page not found */}
             <Route path='*' element={<NotFound />} />
 
         </Routes>

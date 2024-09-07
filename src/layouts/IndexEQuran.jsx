@@ -19,14 +19,13 @@ export default function IndexEQuran() {
       <div className="sticky top-0 z-10">
         <CustomNavbar />
       </div>
+      
       <main className="flex-1 p-4">
         <div className="container mx-auto lg:max-w-screen-2xl">
-          <main className="w-full grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Sidebar onSurahClick={handleSurahClick} />
-            <DetailSurah surahNomor={surahNomor} />
-          </main>
+          <Outlet />
         </div>
       </main>
+
       <Footer />
     </div>
   );
