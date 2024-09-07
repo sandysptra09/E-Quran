@@ -9,10 +9,12 @@ import Index from '../pages/Index/Index'
 import NotFound from '../pages/Not_Found/NotFound';
 
 
-// import layouts
+// import page for layouts
 import IndexEQuran from '../layouts/IndexEQuran';
 import Doa from '../pages/Doa/Doa';
 import Surah from '../pages/Surah/Surah';
+import Blog from '../pages/Blog/Blog';
+import Forum from '../pages/Forum/Forum';
 
 export default function () {
   return (
@@ -26,8 +28,13 @@ export default function () {
             
                 {/* Nested Route */}
                 <Route index element={<Index />} />
-                <Route path='/surah' element={<Surah/>} />
-                <Route path='/doa' element={<Doa />} />
+
+                <Route path='beranda' element={<Index />} />
+                <Route path='surah' element={<Surah/>} />
+                <Route path='doa' element={<Doa />} />
+
+                <Route path='blog' element={<Blog />} />
+                <Route path='forum' element={<Forum />} />
 
             </Route>
 

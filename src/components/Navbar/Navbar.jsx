@@ -7,27 +7,25 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
-  Button,
+  Link as NextUILink,
 } from "@nextui-org/react";
 
 import { Input } from "@nextui-org/input";
-
-import styles from '../../styles/Font.module.css';
+import { Link as RouterLink } from "react-router-dom"; // Import Link dari react-router-dom
+import styles from "../../styles/Font.module.css";
 
 export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = [
-    "Beranda",
-    "Surah",
-    "Doa",
-    "Blog",
-    "Forum",
-  ];
+  const menuItems = ["Beranda", "Surah", "Doa", "Blog", "Forum"];
 
   return (
-    <NextUINavbar onMenuOpenChange={setIsMenuOpen} isBordered variant="sticky" className="py-4">
+    <NextUINavbar
+      onMenuOpenChange={setIsMenuOpen}
+      isBordered
+      variant="sticky"
+      className="py-4"
+    >
       {/* Left section */}
       <NavbarContent>
         <NavbarMenuToggle
@@ -35,26 +33,40 @@ export default function CustomNavbar() {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className={`text-inherit text-black ${styles.quicksandHeading}`}>EQuran.san</p>
+          <RouterLink to='/' className={`text-inherit text-black ${styles.quicksandHeading}`}>
+            EQuran.san
+          </RouterLink>
         </NavbarBrand>
       </NavbarContent>
 
       {/* Center section */}
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/" className={`${styles.quicksandSubHeading}`}>
+          <NextUILink
+            as={RouterLink}
+            to="/"
+            className={`${styles.quicksandSubHeading}`}
+          >
             Beranda
-          </Link>
+          </NextUILink>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/surah" aria-current="page" className={`${styles.quicksandSubHeading}`}>
+        <NavbarItem>
+          <NextUILink
+            as={RouterLink}
+            to="/surah"
+            className={`${styles.quicksandSubHeading}`}
+          >
             Surah
-          </Link>
+          </NextUILink>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/doa" aria-current="page" className={`${styles.quicksandSubHeading}`}>
+        <NavbarItem>
+          <NextUILink
+            as={RouterLink}
+            to="/doa"
+            className={`${styles.quicksandSubHeading}`}
+          >
             Doa
-          </Link>
+          </NextUILink>
         </NavbarItem>
         <NavbarItem>
           <Input
@@ -69,10 +81,14 @@ export default function CustomNavbar() {
       {/* Right section */}
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Blog</Link>
+          <NextUILink as={RouterLink} to="/blog">
+            Blog
+          </NextUILink>
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Forum</Link>
+          <NextUILink as={RouterLink} to="/forum">
+            Forum
+          </NextUILink>
         </NavbarItem>
       </NavbarContent>
 
@@ -80,20 +96,14 @@ export default function CustomNavbar() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-              }
+            <NextUILink
+              as={RouterLink}
+              to={`/${item.toLowerCase()}`}
               className="w-full"
-              href="#"
               size="lg"
             >
               {item}
-            </Link>
+            </NextUILink>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
