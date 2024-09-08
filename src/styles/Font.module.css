@@ -61,6 +61,22 @@
     color: #6290ff;
   }
 
+  .quicksandColorHeadTranslateDoa {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    color: #6290ff;
+  }
+
+  .quicksandTranslateDoa {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    /* color: #ffff; */
+  }
+
   .accordionHeader {
     font-family: 'Quicksand', sans-serif;
     font-weight: 700;

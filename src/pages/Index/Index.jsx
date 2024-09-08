@@ -5,9 +5,9 @@ import styles from '../../styles/Font.module.css';
 export default function Index() {
   return (
     <main className="container max-h-[calc(100vh-10rem)] mx-auto lg:max-w-screen-2xl overflow-y-auto scrollbar scrollbar-w-1 scrollbar-thumb-neutral-300 scrollbar-thumb-rounded-full">
-      <div className="p-4 bg-white mt-2 rounded-lg">
+      <div className="p-4 bg-white mt-1 rounded-lg">
         <div className="w-full p-1">
-          <h1 className="text-3xl text-neutral-900 text-left">
+          <h1 className={`${styles.quicksandHeading} text-[#000] text-left`}>
             Selamat Datang di San.EQuran: Journey Through Faith
           </h1>
 
@@ -23,7 +23,7 @@ export default function Index() {
               pengetahuan dan ketenangan jiwa.
             </p>
 
-            <h3 className={`mt-3 ${styles.quicksandParagraph} font-bold`}>
+            <h3 className={`mt-3 ${styles.accordionHeader} font-bold`}>
               Fitur Unggulan :
             </h3>
 
@@ -71,7 +71,7 @@ export default function Index() {
                 href="mailto:sandisaputra2332@gmail.com"
                 className="font-bold text-[#3e77ff] underline"
               >
-                equran.id@gmail.com
+                sandisaputra2332@gmail.com
               </a>
               .
             </p>

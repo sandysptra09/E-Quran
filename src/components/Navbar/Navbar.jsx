@@ -79,7 +79,7 @@ export default function CustomNavbar() {
             <NextUILink
               as={RouterLink}
               to={item.path}
-              className={`${isActive(item.path) ? "text-blue-600" : "text-black"}`}
+              className={`${styles.quicksandSubHeading} ${isActive(item.path) ? "text-blue-600" : "text-black"}`}
             >
               {item.name}
             </NextUILink>
@@ -94,7 +94,7 @@ export default function CustomNavbar() {
             <NextUILink
               as={RouterLink}
               to={item.path}
-              className={`w-full ${isActive(item.path) ? "text-blue-600" : "text-black"
+              className={`w-full ${styles.quicksandSubHeading} ${isActive(item.path) ? "text-blue-600 " : "text-black"
                 }`}
               size="lg"
             >

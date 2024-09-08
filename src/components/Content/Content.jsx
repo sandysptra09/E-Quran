@@ -3,6 +3,7 @@ import axios from "axios";
 
 import styles from "../../styles/Font.module.css";
 import background from "../../styles/Background.module.css";
+import ButtonModal from "../Modal/Modal";
 
 export default function DetailSurah({ surahNomor}) {
     // initiate state to store surah details and verse array
@@ -174,7 +175,7 @@ export default function DetailSurah({ surahNomor}) {
                                         </p>
                                     </div>
                                     <div className="flex gap-2">
-                                        <button className="audio-play-button bg-pink-500 hover:bg-pink-700 rounded-full p-3 text-white">
+                                        {/* <button className="audio-play-button bg-pink-500 hover:bg-pink-700 rounded-full p-3 text-white">
                                             <audio
                                                 src="https://equran.nos.wjv-1.neo.id/audio-partial/Abdullah-Al-Juhany/001001.mp3"
                                                 className="audio hidden pointer-events-none"
@@ -196,8 +197,8 @@ export default function DetailSurah({ surahNomor}) {
                                                     strokeLinejoin="round"
                                                 ></path>
                                             </svg>
-                                        </button>
-                                        <button className="bg-purple-500 hover:bg-purple-700 rounded-full p-3 text-white">
+                                        </button> */}
+                                        {/* <button className="bg-purple-500 hover:bg-purple-700 rounded-full p-3 text-white">
                                             <svg
                                                 width="20"
                                                 height="20"
@@ -216,61 +217,8 @@ export default function DetailSurah({ surahNomor}) {
                                                     strokeLinejoin="round"
                                                 ></path>
                                             </svg>
-                                        </button>
-                                        <button className="bg-neutral-900 hover:bg-neutral-700 dark:hover:bg-neutral-700 rounded-full py-2 px-3 flex items-center gap-1 text-white font-semibold text-sm">
-                                            <svg
-                                                width="20"
-                                                height="20"
-                                                viewBox="0 0 20 20"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="w-5 h-5"
-                                            >
-                                                <path
-                                                    d="M16.6695 7.49897V4.16425C16.6695 3.24339 15.923 2.49689 15.0022 2.49689H4.16431C3.24345 2.49689 2.49695 3.24339 2.49695 4.16425V15.8358C2.49695 16.7566 3.24345 17.5031 4.16431 17.5031H8.33271"
-                                                    stroke="white"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                                <path
-                                                    d="M5.83167 5.83163H13.3348"
-                                                    stroke="white"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                                <path
-                                                    d="M5.83167 9.16635H10.0001"
-                                                    stroke="white"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                                <path
-                                                    d="M5.83167 12.5011H8.33271"
-                                                    stroke="white"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                                <path
-                                                    d="M17.5031 17.5031L16.1367 16.1367"
-                                                    stroke="white"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                                <path
-                                                    d="M13.9384 10.8337C15.653 10.8337 17.043 12.2237 17.043 13.9383C17.043 15.6529 15.653 17.0429 13.9384 17.0429C12.2237 17.0429 10.8337 15.6529 10.8337 13.9383C10.8339 12.2237 12.2238 10.8338 13.9384 10.8337"
-                                                    stroke="white"
-                                                    strokeWidth="1.5"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>
-                                            </svg>
-                                            Tafsir
-                                        </button>
+                                        </button> */}
+                                        <ButtonModal surah={surahNomor} ayat={ayahs.nomor}/>
                                     </div>
                                 </div>
                             ))}
