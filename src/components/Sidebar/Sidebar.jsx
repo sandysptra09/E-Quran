@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "../../styles/Font.module.css";
 import background from "../../styles/Background.module.css";
 
-export default function Sidebar({ onSurahClick }) {
+export default function Sidebar({ onSurahClick, searchTerm }) {
     // initiate state
     const [surahs, setSurahs] = useState([]);
     const [error, setError] = useState(null);
@@ -25,10 +25,16 @@ export default function Sidebar({ onSurahClick }) {
         fetchSurahs();
     }, []);
 
+    // handle click event
     const handleClick = (nomor) => {
         setSelectedSurah(nomor); // Set selected surah
         onSurahClick(nomor);
     };
+
+    // filter surah with search term
+    const filteredSurahs = surahs.filter((surah) =>
+        surah.nama_latin.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     if (error) {
         return (
@@ -40,17 +46,16 @@ export default function Sidebar({ onSurahClick }) {
 
     return (
         <div className="bg-white rounded-md col-start-1 col-end-2 p-3 flex flex-col gap-3 max-h-[calc(100vh-11rem)] overflow-y-auto scrollbar scrollbar-w-1 scrollbar-thumb-neutral-300 dark:scrollbar-thumb-neutral-600 scrollbar-thumb-rounded-full w-full sm:w-64 md:w-80">
-            {surahs.map((surah) => (
-                 <Link
-                 key={surah.nomor}
-                 to=""
-                 onClick={() => handleClick(surah.nomor)} // Handle click
-                 className={`rounded-md p-2 grid grid-cols-4 grid-rows-2 gap-2 items-center cursor-pointer ${
-                     selectedSurah === surah.nomor
-                         ? 'text-[#3e77ff] bg-gray-100'
-                         : 'hover:text-[#3e77ff] bg-white'
-                 } ${background.backgroundCard}`}
-             >
+            {filteredSurahs.map((surah) => (
+                <Link
+                    key={surah.nomor}
+                    to=""
+                    onClick={() => handleClick(surah.nomor)} // Handle click
+                    className={`rounded-md p-2 grid grid-cols-4 grid-rows-2 gap-2 items-center cursor-pointer ${selectedSurah === surah.nomor
+                        ? 'text-[#3e77ff] bg-gray-100'
+                        : 'hover:text-[#3e77ff] bg-white'
+                        } ${background.backgroundCard}`}
+                >
                     <div className="relative flex items-center justify-center text-fuchsia-600 row-start-1 row-end-3">
                         <svg
                             width="28.5"

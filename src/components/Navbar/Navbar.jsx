@@ -10,13 +10,18 @@ import {
   Link as NextUILink,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/input";
+import { CiSearch } from "react-icons/ci"; // Import the search icon
 import { Link as RouterLink, useLocation } from "react-router-dom"; // Import useLocation
 import styles from "../../styles/Font.module.css";
 
-export default function CustomNavbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation(); // Dapatkan lokasi saat ini
+export default function CustomNavbar({ onSearch }) {
 
+  // initiate state variables for search input and menu state
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // data for menu state
   const menuItems = [
     { name: "Beranda", path: "/" },
     { name: "Surah", path: "/surah" },
@@ -25,8 +30,17 @@ export default function CustomNavbar() {
     { name: "Forum", path: "/forum" },
   ];
 
-  // Function to check if Link is active
+  // function to check if Link is active
   const isActive = (path) => location.pathname === path;
+
+  // function to handle search input change event
+  const handleSearchChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    if (onSearch) {
+      onSearch(term);
+    }
+  };
 
   return (
     <NextUINavbar
@@ -43,7 +57,7 @@ export default function CustomNavbar() {
         />
         <NavbarBrand>
           <RouterLink to="/" className={`text-inherit text-black ${styles.quicksandHeading}`}>
-          San.EQuran
+            San.EQuran
           </RouterLink>
         </NavbarBrand>
       </NavbarContent>
@@ -63,12 +77,19 @@ export default function CustomNavbar() {
           </NavbarItem>
         ))}
         <NavbarItem>
-          <Input
-            clearable
-            placeholder="Cari Surah..."
-            className={`w-72 ${styles.quicksandSubHeading} font-medium`}
-            type="search"
-          />
+          <div className="relative w-72">
+
+            <Input
+              clearable
+              placeholder="Cari Surah..."
+              className={`w-full pr-10 ${styles.quicksandSubHeading} font-medium`}
+              type="search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+
+            <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500" size={24} />
+          </div>
         </NavbarItem>
       </NavbarContent>
 
@@ -102,6 +123,22 @@ export default function CustomNavbar() {
             </NextUILink>
           </NavbarMenuItem>
         ))}
+
+        <NavbarMenuItem>
+          <div className="relative w-full">
+            {/* Input search with search icon for mobile */}
+            <Input
+              clearable
+              placeholder="Cari Surah..."
+              className={`w-full pr-10 ${styles.quicksandSubHeading} font-medium`}
+              type="search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+
+            <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-neutral-900" size={24} />
+          </div>
+        </NavbarMenuItem>
       </NavbarMenu>
     </NextUINavbar>
   );
