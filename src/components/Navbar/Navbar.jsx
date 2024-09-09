@@ -88,7 +88,7 @@ export default function CustomNavbar({ onSearch }) {
               onChange={handleSearchChange}
             />
 
-            <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500" size={24} />
+            {/* <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500" size={24} /> */}
           </div>
         </NavbarItem>
       </NavbarContent>
@@ -136,7 +136,7 @@ export default function CustomNavbar({ onSearch }) {
               onChange={handleSearchChange}
             />
 
-            <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-neutral-900" size={24} />
+            {/* <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-neutral-900" size={24} /> */}
           </div>
         </NavbarMenuItem>
       </NavbarMenu>
